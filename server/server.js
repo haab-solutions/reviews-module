@@ -11,15 +11,6 @@ const PORT = 3000;
 
 app.use(express.static(__dirname + '/../client/dist'));
 
-app.post('/api/reviews', (req,res) => {
-  // console.log(req.body);
-  db.seedData(req.body, (err, suc) => {
-    if (err) {
-      console.log(err);
-    }
-  })
-});
-
 app.get('/api/reviews', (req, res) => {
   db.getData((err, results) => {
     if (err) {

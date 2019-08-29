@@ -22,10 +22,13 @@ class App extends React.Component {
       url: 'http://localhost:3000/api/reviews',
       dataType: 'json',
       success: (data) => {
+        this.setState({
+          entry: data[0]
+        })
         console.log('success');
       },
       error: (err) => {
-        console.log(err)
+        console.log('error')
       }
     });
   }

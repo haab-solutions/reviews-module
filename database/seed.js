@@ -5,8 +5,33 @@ function generateReviews() {
 
   let reviews = [];
   let total = 50;
+
+  //10% of customers use/purchase same item or listing in more than one occasion
+  let ninetyPercent = Math.ceil(total * 0.9);
+  let custNamePool = [];
+  for (let count = 1; count <= ninetyPercent; count++) {
+    custNamePool.push(faker.name.firstName());
+  }
+
+  //custDate
+
+
+  //custUrl
+
+
+  //25% of hosts have more than 1 listing
+  let hostNamePool = [];
+  for (let count = 1; count <= 75; count++) {
+    hostNamePool.push(faker.name.firstName());
+  }
+
+
+  //25% of reviews have a response from host
+
+
+
   //determine # of reviews to randomly generate (id)
-  for (let id=1; id <= total; id++) {
+  for (let id = 1; id <= total; id++) {
 
     let custName = faker.name.firstName();
     let custDate = faker.date.past();

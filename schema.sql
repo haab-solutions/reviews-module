@@ -7,7 +7,7 @@ USE reviews;
 CREATE TABLE review (
   id INT NOT NULL,
   custName VARCHAR(25),
-  custDate DATE,
+  custDate VARCHAR(20),
   custUrl VARCHAR(100),
   custReview VARCHAR(500),
   overallRating INT,

@@ -4,7 +4,7 @@ const db = require('./index.js');
 function generateReviews() {
 
   let reviews = [];
-  let total = 50;
+  let total = 3;
 
   //10% of customers use/purchase same item or listing in more than one occasion
   let ninetyPercent = Math.ceil(total * 0.9);
@@ -34,8 +34,9 @@ function generateReviews() {
   for (let id = 1; id <= total; id++) {
 
     let custName = faker.name.firstName();
-    let custDate = faker.date.past();
-    let custUrl = faker.image.imageUrl();
+    let tempDate = faker.date.past().toString();
+    let custDate = tempDate.slice(4,15);
+    let custUrl = faker.image.avatar();
     let custReview = faker.lorem.paragraph();
     let overallRating = Math.floor(Math.random() * 6);
     let accuracyRating = Math.floor(Math.random() * 6);
@@ -46,7 +47,7 @@ function generateReviews() {
     let valueRating = Math.floor(Math.random() * 6);
     let hostName = faker.name.firstName();
     let hostDate = faker.date.recent();
-    let hostUrl = faker.image.imageUrl();
+    let hostUrl = faker.image.avatar();
     let hostResponse = faker.lorem.paragraph();
     let listingId = Math.floor(Math.random() * 101);
 

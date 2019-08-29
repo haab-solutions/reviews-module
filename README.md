@@ -4,10 +4,10 @@
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/haab-solutions/photo-gallery-module
+  - https://github.com/haab-solutions/reviews-module
+  - https://github.com/haab-solutions/recommendations-module
+  - https://github.com/haab-solutions/reservations-module
 
 ## Table of Contents
 

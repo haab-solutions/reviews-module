@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 
+import ReviewlistEntry from './components/ReviewlistEntry.jsx';
 
 //basic temp React component
 class App extends React.Component {
@@ -9,20 +10,24 @@ class App extends React.Component {
     super(props);
 
     this.state = {
+      entry: ''
     }
   }
 
   componentDidMount() {
 
-//GET request to retrieve reviews data
+// GET request to retrieve reviews data
     $.ajax({
       type: 'GET',
       url: 'http://localhost:3000/api/reviews',
       dataType: 'json',
       success: (data) => {
+        this.setState({
+          entry: data[0]
+        })
         console.log('success');
       },
-      error: () => {
+      error: (err) => {
         console.log('error')
       }
     });
@@ -30,9 +35,11 @@ class App extends React.Component {
 
   render() {
     return(
-      <div></div>
+      <div>
+        <ReviewlistEntry data={this.state.entry} />
+      </div>
     )
-  };
+  }
 
 
 };

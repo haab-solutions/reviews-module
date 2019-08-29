@@ -3,26 +3,52 @@ const db = require('./index.js');
 
 function generateReviews() {
 
-  let reviews = []
+  let reviews = [];
+  let total = 50;
+
+  //10% of customers use/purchase same item or listing in more than one occasion
+  let ninetyPercent = Math.ceil(total * 0.9);
+  let custNamePool = [];
+  for (let count = 1; count <= ninetyPercent; count++) {
+    custNamePool.push(faker.name.firstName());
+  }
+
+  //custDate
+
+
+  //custUrl
+
+
+  //25% of hosts have more than 1 listing
+  let hostNamePool = [];
+  for (let count = 1; count <= 75; count++) {
+    hostNamePool.push(faker.name.firstName());
+  }
+
+
+  //25% of reviews have a response from host
+
+
+
   //determine # of reviews to randomly generate (id)
-  for (let id=1; id <= 1; id++) {
+  for (let id = 1; id <= total; id++) {
 
     let custName = faker.name.firstName();
     let custDate = faker.date.past();
     let custUrl = faker.image.imageUrl();
     let custReview = faker.lorem.paragraph();
-    let overallRating = Math.floor(Math.random() * Math.floor(6));
-    let accuracyRating = Math.floor(Math.random() * Math.floor(6));
-    let commRating = Math.floor(Math.random() * Math.floor(6));
-    let cleanRating = Math.floor(Math.random() * Math.floor(6));
-    let locationRating = Math.floor(Math.random() * Math.floor(6));
-    let checkinRating = Math.floor(Math.random() * Math.floor(6));
-    let valueRating = Math.floor(Math.random() * Math.floor(6));
+    let overallRating = Math.floor(Math.random() * 6);
+    let accuracyRating = Math.floor(Math.random() * 6);
+    let commRating = Math.floor(Math.random() * 6);
+    let cleanRating = Math.floor(Math.random() * 6);
+    let locationRating = Math.floor(Math.random() * 6);
+    let checkinRating = Math.floor(Math.random() * 6);
+    let valueRating = Math.floor(Math.random() * 6);
     let hostName = faker.name.firstName();
     let hostDate = faker.date.recent();
     let hostUrl = faker.image.imageUrl();
     let hostResponse = faker.lorem.paragraph();
-    let listingId = Math.floor(Math.random() * Math.floor(101));
+    let listingId = Math.floor(Math.random() * 101);
 
 //need to account for smaller pool of hosts, customer names, and consistent name to url(picture)
 

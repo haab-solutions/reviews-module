@@ -17,10 +17,10 @@ class App extends React.Component {
       filtered: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleGoBack = this.handleGoBack.bind(this);
   }
 
   componentDidMount() {
-
 // GET request to retrieve reviews data
     $.ajax({
       type: 'GET',
@@ -50,6 +50,13 @@ class App extends React.Component {
       })
   }
 
+  handleGoBack() {
+    this.setState({
+      searchTerm: ''
+    })
+    this.componentDidMount();
+  }
+
   render() {
     if (this.state.filtered.length === 0 && this.state.searchTerm !== '') {
       return(
@@ -59,6 +66,7 @@ class App extends React.Component {
         </div>
         <div>
           None of our guests have mentioned "{this.state.searchTerm}"
+          <span onClick={this.handleGoBack}>Back to all reviews</span>
         </div>
       </div>
       )
@@ -70,6 +78,7 @@ class App extends React.Component {
           </div>
           <div>
             {this.state.filtered.length} guest has mentioned "{this.state.searchTerm}"
+            <span onClick={this.handleGoBack}>Back to all reviews</span>
           </div>
           <div>
             <Reviewlist data={this.state.filtered} />
@@ -84,6 +93,7 @@ class App extends React.Component {
           </div>
           <div>
             {this.state.filtered.length} guests have mentioned "{this.state.searchTerm}"
+            <span onClick={this.handleGoBack}>Back to all reviews</span>
           </div>
           <div>
             <Reviewlist data={this.state.filtered} />

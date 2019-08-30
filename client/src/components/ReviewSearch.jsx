@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './ReviewSearch.css';
 
 class ReviewSearch extends React.Component {
   constructor(props) {
@@ -7,15 +8,15 @@ class ReviewSearch extends React.Component {
 
   render() {
     return (
-      <span>
-        <form id="search" onSubmit={this.props.handleSubmit}>
-          <input id="searchTerm"
+      <div className={styles.search}>
+        <form className={styles.searchForm} onSubmit={this.props.handleSubmit}>
+          <input id='searchTerm'
             type="text"
-            placeholder="Search reviews" />
+            placeholder="Search reviews" className={styles.search} />
         </form>
-      </span>
+      </div>
     );
   }
-}
+  }
 
 export default ReviewSearch;

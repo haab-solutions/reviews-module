@@ -1,5 +1,6 @@
 import React from 'react';
 import Ratings from 'react-ratings-declarative';
+import styles from './OverallReview.css'
 
 class OverallReview extends React.Component {
   constructor(props) {
@@ -35,28 +36,17 @@ class OverallReview extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className={styles.overall}>
         <span>
-        <div>
-          {this.state.total} Reviews  <Ratings rating={Number(this.state.rating)} widgetRatedColors="007D8C" widgetDimensions="20px" widgetSpacings="1px">
-              <Ratings.Widget />
-              <Ratings.Widget />
-              <Ratings.Widget />
-              <Ratings.Widget />
-              <Ratings.Widget />
-            </Ratings>
-        </div>
-        {/* <div className='overall'>
-          <span>
-            <Ratings rating={Number(this.state.rating)} widgetRatedColors="007D8C" widgetDimensions="20px">
-              <Ratings.Widget />
-              <Ratings.Widget />
-              <Ratings.Widget />
-              <Ratings.Widget />
-              <Ratings.Widget />
-            </Ratings>
-          </span>
-        </div> */}
+          <div>
+            {this.state.total} Reviews  <Ratings rating={Number(this.state.rating)} widgetRatedColors="007D8C" widgetDimensions="20px" widgetSpacings="1px">
+                <Ratings.Widget />
+                <Ratings.Widget />
+                <Ratings.Widget />
+                <Ratings.Widget />
+                <Ratings.Widget />
+              </Ratings>
+          </div>
         </span>
       </div>
     )

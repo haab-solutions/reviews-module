@@ -41,6 +41,7 @@ class App extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    console.log(search);
     let search = this.state.entry.filter(function(review) {
       return review.custReview.toLowerCase().includes($('#searchTerm').val().toLowerCase());
     });
@@ -61,9 +62,10 @@ class App extends React.Component {
     if (this.state.filtered.length === 0 && this.state.searchTerm !== '') {
       return(
         <div>
-        <div>
-          <OverallReview data={this.state.entry} /> <ReviewSearch handleSubmit={this.handleSubmit}/>
-        </div>
+            <div>
+              <ReviewSearch handleSubmit={this.handleSubmit}/>
+              <OverallReview data={this.state.entry} />
+            </div>
         <div>
           None of our guests have mentioned "{this.state.searchTerm}"
           <span onClick={this.handleGoBack}>Back to all reviews</span>
@@ -73,9 +75,10 @@ class App extends React.Component {
     } else if (this.state.filtered.length === 1 && this.state.searchTerm !== '') {
       return(
         <div>
-          <div>
-            <OverallReview data={this.state.entry} /> <ReviewSearch handleSubmit={this.handleSubmit}/>
-          </div>
+            <div>
+              <ReviewSearch handleSubmit={this.handleSubmit}/>
+              <OverallReview data={this.state.entry} />
+            </div>
           <div>
             {this.state.filtered.length} guest has mentioned "{this.state.searchTerm}"
             <span onClick={this.handleGoBack}>Back to all reviews</span>
@@ -88,9 +91,10 @@ class App extends React.Component {
     } else if (this.state.filtered.length > 1 && this.state.searchTerm !== '') {
       return(
         <div>
-          <div>
-            <OverallReview data={this.state.entry} /> <ReviewSearch handleSubmit={this.handleSubmit}/>
-          </div>
+            <div>
+              <ReviewSearch handleSubmit={this.handleSubmit}/>
+              <OverallReview data={this.state.entry} />
+            </div>
           <div>
             {this.state.filtered.length} guests have mentioned "{this.state.searchTerm}"
             <span onClick={this.handleGoBack}>Back to all reviews</span>
@@ -103,9 +107,10 @@ class App extends React.Component {
     } else {
       return(
         <div>
-          <div>
-            <OverallReview data={this.state.entry} /> <ReviewSearch handleSubmit={this.handleSubmit}/>
-          </div>
+            <div>
+              <ReviewSearch handleSubmit={this.handleSubmit}/>
+              <OverallReview data={this.state.entry} />
+            </div>
           <div>
             <CategoryReviews data={this.state.entry} />
           </div>

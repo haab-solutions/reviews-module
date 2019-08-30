@@ -1,4 +1,5 @@
 import React from 'react';
+import Ratings from 'react-ratings-declarative';
 
 class OverallReview extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class OverallReview extends React.Component {
     let data = this.props.data;
     let rating = 0;
     for (let i = 0; i < data.length; i++) {
-      rating = rating + data[i].overallRating;
+      rating += data[i].overallRating;
     }
     let average = rating / data.length;
 
@@ -35,10 +36,28 @@ class OverallReview extends React.Component {
   render() {
     return(
       <div>
+        <span>
         <div>
-          {this.state.total} Reviews
+          {this.state.total} Reviews  <Ratings rating={Number(this.state.rating)} widgetRatedColors="007D8C" widgetDimensions="20px" widgetSpacings="1px">
+              <Ratings.Widget />
+              <Ratings.Widget />
+              <Ratings.Widget />
+              <Ratings.Widget />
+              <Ratings.Widget />
+            </Ratings>
         </div>
-        <div>{this.state.rating} Stars</div>
+        {/* <div className='overall'>
+          <span>
+            <Ratings rating={Number(this.state.rating)} widgetRatedColors="007D8C" widgetDimensions="20px">
+              <Ratings.Widget />
+              <Ratings.Widget />
+              <Ratings.Widget />
+              <Ratings.Widget />
+              <Ratings.Widget />
+            </Ratings>
+          </span>
+        </div> */}
+        </span>
       </div>
     )
   }

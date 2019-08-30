@@ -1,4 +1,5 @@
 import React from 'react';
+import Ratings from 'react-ratings-declarative';
 
 class CategoryReviews extends React.Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class CategoryReviews extends React.Component {
     let data = this.props.data;
     let rating = 0;
     for (let i = 0; i < data.length; i++) {
-      rating = rating + data[i].accuracyRating;
+      rating += data[i].accuracyRating;
     }
     let average = rating / data.length;
 
@@ -40,7 +41,7 @@ class CategoryReviews extends React.Component {
     let data = this.props.data;
     let rating = 0;
     for (let i = 0; i < data.length; i++) {
-      rating = rating + data[i].commRating;
+      rating += data[i].commRating;
     }
     let average = rating / data.length;
 
@@ -54,7 +55,7 @@ class CategoryReviews extends React.Component {
     let data = this.props.data;
     let rating = 0;
     for (let i = 0; i < data.length; i++) {
-      rating = rating + data[i].cleanRating;
+      rating += data[i].cleanRating;
     }
     let average = rating / data.length;
 
@@ -68,7 +69,7 @@ class CategoryReviews extends React.Component {
     let data = this.props.data;
     let rating = 0;
     for (let i = 0; i < data.length; i++) {
-      rating = rating + data[i].locationRating;
+      rating += data[i].locationRating;
     }
     let average = rating / data.length;
 
@@ -82,7 +83,7 @@ class CategoryReviews extends React.Component {
     let data = this.props.data;
     let rating = 0;
     for (let i = 0; i < data.length; i++) {
-      rating = rating + data[i].checkinRating;
+      rating += data[i].checkinRating;
     }
     let average = rating / data.length;
 
@@ -96,7 +97,7 @@ class CategoryReviews extends React.Component {
     let data = this.props.data;
     let rating = 0;
     for (let i = 0; i < data.length; i++) {
-      rating = rating + data[i].valueRating;
+      rating += data[i].valueRating;
     }
     let average = rating / data.length;
 
@@ -122,16 +123,82 @@ class CategoryReviews extends React.Component {
         <table>
           <tbody>
             <tr>
-              <td>Accuracy {this.state.accuracyRating}</td>
-              <td>Location {this.state.locationRating}</td>
+              <td>Accuracy</td>
+              <td>
+                <span>
+                  <Ratings rating={Number(this.state.accuracyRating)} widgetRatedColors="007D8C" widgetDimensions="20px" widgetSpacings="1px">
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                  </Ratings>
+                </span>
+              </td>
+              <td>Location</td>
+              <td>
+                <span>
+                  <Ratings rating={Number(this.state.locationRating)} widgetRatedColors="007D8C" widgetDimensions="20px" widgetSpacings="1px">
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                  </Ratings>
+                </span>
+              </td>
             </tr>
             <tr>
-              <td>Communication {this.state.commRating}</td>
-              <td>Check-in {this.state.checkinRating}</td>
+              <td>Communication</td>
+              <td>
+                <span>
+                  <Ratings rating={Number(this.state.commRating)} widgetRatedColors="007D8C" widgetDimensions="20px" widgetSpacings="1px">
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                  </Ratings>
+                </span>
+              </td>
+              <td>Check-in</td>
+              <td>
+                <span>
+                  <Ratings rating={Number(this.state.checkinRating)} widgetRatedColors="007D8C" widgetDimensions="20px" widgetSpacings="1px">
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                  </Ratings>
+                </span>
+              </td>
             </tr>
             <tr>
-              <td>Cleanliness {this.state.cleanRating}</td>
-              <td>Value {this.state.valueRating}</td>
+              <td>Cleanliness</td>
+              <td>
+                <span>
+                  <Ratings rating={Number(this.state.cleanRating)} widgetRatedColors="007D8C" widgetDimensions="20px" widgetSpacings="1px">
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                  </Ratings>
+                </span>
+              </td>
+              <td>Value</td>
+              <td>
+                <span>
+                  <Ratings rating={Number(this.state.valueRating)} widgetRatedColors="007D8C" widgetDimensions="20px" widgetSpacings="1px">
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                  </Ratings>
+                </span>
+              </td>
             </tr>
           </tbody>
         </table>

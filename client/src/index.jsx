@@ -7,14 +7,16 @@ import OverallReview from './components/OverallReview.jsx';
 import CategoryReviews from './components/CategoryReviews.jsx';
 import ReviewSearch from './components/ReviewSearch.jsx';
 
-//basic temp React component
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      entry: ''
+      entry: '',
+      searchTerm: '',
+      filtered: ''
     }
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -26,7 +28,8 @@ class App extends React.Component {
       dataType: 'json',
       success: (data) => {
         this.setState({
-          entry: data
+          entry: data,
+          filtered: data
         })
         console.log('success');
       },
@@ -34,22 +37,74 @@ class App extends React.Component {
         console.log('error')
       }
     });
+  };
+
+  handleSubmit(e) {
+    e.preventDefault();
+    let search = this.state.entry.filter(function(review) {
+      return review.custReview.toLowerCase().includes($('#searchTerm').val().toLowerCase());
+    });
+      this.setState({
+        filtered: search,
+        searchTerm: $('#searchTerm').val()
+      })
   }
 
   render() {
-    return(
-      <div>
+    if (this.state.filtered.length === 0 && this.state.searchTerm !== '') {
+      return(
         <div>
-          <OverallReview data={this.state.entry} /> <ReviewSearch />
+        <div>
+          <OverallReview data={this.state.entry} /> <ReviewSearch handleSubmit={this.handleSubmit}/>
         </div>
         <div>
-          <CategoryReviews data={this.state.entry} />
-        </div>
-        <div>
-          <Reviewlist data={this.state.entry} />
+          None of our guests have mentioned "{this.state.searchTerm}"
         </div>
       </div>
-    )
+      )
+    } else if (this.state.filtered.length === 1 && this.state.searchTerm !== '') {
+      return(
+        <div>
+          <div>
+            <OverallReview data={this.state.entry} /> <ReviewSearch handleSubmit={this.handleSubmit}/>
+          </div>
+          <div>
+            {this.state.filtered.length} guest has mentioned "{this.state.searchTerm}"
+          </div>
+          <div>
+            <Reviewlist data={this.state.filtered} />
+          </div>
+        </div>
+      )
+    } else if (this.state.filtered.length > 1 && this.state.searchTerm !== '') {
+      return(
+        <div>
+          <div>
+            <OverallReview data={this.state.entry} /> <ReviewSearch handleSubmit={this.handleSubmit}/>
+          </div>
+          <div>
+            {this.state.filtered.length} guests have mentioned "{this.state.searchTerm}"
+          </div>
+          <div>
+            <Reviewlist data={this.state.filtered} />
+          </div>
+        </div>
+      )
+    } else {
+      return(
+        <div>
+          <div>
+            <OverallReview data={this.state.entry} /> <ReviewSearch handleSubmit={this.handleSubmit}/>
+          </div>
+          <div>
+            <CategoryReviews data={this.state.entry} />
+          </div>
+          <div>
+            <Reviewlist data={this.state.filtered} />
+          </div>
+        </div>
+      )
+    }
   }
 
 

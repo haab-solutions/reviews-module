@@ -72,6 +72,10 @@ function generateReviews() {
         "hostResponse": hostResponse,
         "listingId": listingId
     });
+
+    reviews.sort(function(a,b) {
+      return new Date(b.custDate) - new Date(a.custDate);
+    });
   }
 
   return reviews;
@@ -80,11 +84,9 @@ function generateReviews() {
 let reviewsData = generateReviews();
 
 for (let i = 0; i < reviewsData.length; i++) {
-  db.seedData(reviewsData[i], (err, succ) => {
+  db.seedData(reviewsData[i], (err) => {
     if (err) {
       console.log(err);
-    } else {
-      console.log('stored in database');
     }
   });
 };

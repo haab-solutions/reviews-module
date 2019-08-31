@@ -1,38 +1,22 @@
 import React from 'react';
+import styles from './ReviewSearch.css';
 
 class ReviewSearch extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      value: ''
-    }
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(e) {
-    this.setState({
-      value: e.target.value
-    })
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-//need to add funcitonality
   }
 
   render() {
     return (
-      <form id="search" onSubmit={this.handleSubmit}>
-        <input
-          onChange={this.handleChange}
-          type="text"
-          value={this.state.value}
-          placeholder="Search reviews" />
-      </form>
+      <div className={styles.search}>
+        <form className={styles.searchForm} onSubmit={this.props.handleSubmit}>
+          <input id='searchTerm'
+            type="text"
+            placeholder="Search reviews" className={styles.search} />
+        </form>
+      </div>
     );
   }
-}
+  }
 
 export default ReviewSearch;

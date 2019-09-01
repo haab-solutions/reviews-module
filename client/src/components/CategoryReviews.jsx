@@ -1,5 +1,6 @@
 import React from 'react';
 import Ratings from 'react-ratings-declarative';
+import styles from './CategoryReviews.css';
 
 class CategoryReviews extends React.Component {
   constructor(props) {
@@ -120,11 +121,11 @@ class CategoryReviews extends React.Component {
   render() {
     return(
       <div>
-        <table>
+        <table className={styles.table}>
           <tbody>
             <tr>
-              <td>Accuracy</td>
-              <td>
+              <td className={styles.category}>Accuracy</td>
+              <td className={styles.rating}>
                 <span>
                   <Ratings rating={Number(this.state.accuracyRating)} widgetRatedColors="007D8C" widgetDimensions="20px" widgetSpacings="1px">
                     <Ratings.Widget />
@@ -135,8 +136,8 @@ class CategoryReviews extends React.Component {
                   </Ratings>
                 </span>
               </td>
-              <td>Location</td>
-              <td>
+              <td className={styles.category}>Location</td>
+              <td className={styles.rating}>
                 <span>
                   <Ratings rating={Number(this.state.locationRating)} widgetRatedColors="007D8C" widgetDimensions="20px" widgetSpacings="1px">
                     <Ratings.Widget />
@@ -149,8 +150,8 @@ class CategoryReviews extends React.Component {
               </td>
             </tr>
             <tr>
-              <td>Communication</td>
-              <td>
+              <td className={styles.category}>Communication</td>
+              <td className={styles.rating}>
                 <span>
                   <Ratings rating={Number(this.state.commRating)} widgetRatedColors="007D8C" widgetDimensions="20px" widgetSpacings="1px">
                     <Ratings.Widget />
@@ -161,8 +162,8 @@ class CategoryReviews extends React.Component {
                   </Ratings>
                 </span>
               </td>
-              <td>Check-in</td>
-              <td>
+              <td className={styles.category}>Check-in</td>
+              <td className={styles.rating}>
                 <span>
                   <Ratings rating={Number(this.state.checkinRating)} widgetRatedColors="007D8C" widgetDimensions="20px" widgetSpacings="1px">
                     <Ratings.Widget />
@@ -175,8 +176,8 @@ class CategoryReviews extends React.Component {
               </td>
             </tr>
             <tr>
-              <td>Cleanliness</td>
-              <td>
+              <td className={styles.category}>Cleanliness</td>
+              <td className={styles.rating}>
                 <span>
                   <Ratings rating={Number(this.state.cleanRating)} widgetRatedColors="007D8C" widgetDimensions="20px" widgetSpacings="1px">
                     <Ratings.Widget />
@@ -187,8 +188,8 @@ class CategoryReviews extends React.Component {
                   </Ratings>
                 </span>
               </td>
-              <td>Value</td>
-              <td>
+              <td className={styles.category}>Value</td>
+              <td className={styles.rating}>
                 <span>
                   <Ratings rating={Number(this.state.valueRating)} widgetRatedColors="007D8C" widgetDimensions="20px" widgetSpacings="1px">
                     <Ratings.Widget />

@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './ReviewlistEntry.css';
 
 
 class ReviewlistEntry extends React.Component {
@@ -9,11 +10,23 @@ class ReviewlistEntry extends React.Component {
 
   render() {
     return(
-      <div>
-        <div>
-        <img src={this.props.data.custUrl}/>{this.props.data.custName}</div>
-        <div>{this.props.data.custDate}</div>
-        <div>{this.props.data.custReview}</div>
+      <div className={styles.oneReview}>
+        <div className={styles.profile}>
+            <div>
+              <img className={styles.profilePic} src={this.props.data.custUrl}/>
+            </div>
+            <div className={styles.nameAndDate}>
+              <div className={styles.custName}>
+                {this.props.data.custName}
+              </div>
+              <div className={styles.custDate}>
+                {this.props.data.custDate}
+              </div>
+            </div>
+        </div>
+          <div className={styles.custReview}>
+            {this.props.data.custReview}
+          </div>
       </div>
     )
   }
